@@ -31,7 +31,7 @@ class XenApi {
     private $_password;
 
     function __construct ($url, $user, $password) {
-        $r = $this->xenrpc_request($url, $this->xenrpc_method('session.login_with_password', array($user, $password, '1.3')));
+        $r = $this->xenrpc_request($url, $this->xenrpc_method('session.login_with_password', array($user, $password)));
         if (is_array($r) && $r['Status'] == 'Success') {
             $this->_session_id = $r['Value'];
             $this->_url = $url;
